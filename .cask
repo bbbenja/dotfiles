@@ -27,3 +27,5 @@ installcask alfred
 installcask bettertouchtool
 installcask sequel-pro
 #installcask umongo
+#installcask xchat-azur
+#copy config
