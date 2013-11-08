@@ -25,4 +25,8 @@ export GREP_OPTIONS="--color=auto"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Set Java version
-export JAVA_HOME=`/usr/libexec/java_home -v '1.7.0_05'`
+export JAVA_HOME=`/usr/libexec/java_home -v '1.7.0_25'`
+export M3_HOME="/usr/local/Cellar/maven/3.1.1"
+
+# Display
+export DISPLAY=:0

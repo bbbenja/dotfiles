@@ -1,0 +1,44 @@
+# .glassfish
+
+# Glassfish installation directory
+GLASSFISH=/Users/benou/workspace/srmvision/glassfish3
+# List of domains to operate on
+DOMAINS="domain1"
+
+
+DAEMON=${GLASSFISH}/bin/asadmin
+
+# Start glassfish
+function gfs() {
+	ulimit -n 1200
+	$DAEMON start-domain $DOMAIN > /dev/null
+	echo "Glassfish is started"
+}
+
+# Stop glassfish
+function gfh() {
+	$DAEMON stop-domain $DOMAIN > /dev/null
+	echo "Glassfish is stopped"
+}
+
+# Restart glassfish
+function gfr() {
+	gfh
+	gfs
+}
+
+# Kill glassfish
+function gfk(){
+	pid=$(ps -fe | grep '[g]lassfish' | awk '{print $2}')
+	if [[ -n $pid ]]; then
+	    kill $pid
+	else
+	    echo "Does not exist"
+	fi
+	echo "Glassfish is killed"
+}
+
+# Logs
+function gfl(){
+	tail -F -n1000 ${GLASSFISH}/glassfish/domains/domain1/logs/server.log
+}

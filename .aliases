@@ -144,3 +144,7 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+alias mvnc="mvn clean"
+alias mvni="mvn install -Dmaven.test.skip=true"
+alias mvnt="mvn clean install"

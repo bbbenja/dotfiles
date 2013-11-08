@@ -21,3 +21,9 @@ installcask transmission
 installcask ukelele
 #installcask virtualbox
 installcask vlc
+installcask alfred
+#remove spotlight shortcut
+#change alfred shortcut
+installcask bettertouchtool
+installcask sequel-pro
+#installcask umongo
