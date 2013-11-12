@@ -1,7 +1,7 @@
 # .glassfish
 
 # Glassfish installation directory
-GLASSFISH=/Users/benou/workspace/srmvision/glassfish3
+GLASSFISH=/opt/glassfish3
 # List of domains to operate on
 DOMAINS="domain1"
 
@@ -31,14 +31,23 @@ function gfr() {
 function gfk(){
 	pid=$(ps -fe | grep '[g]lassfish' | awk '{print $2}')
 	if [[ -n $pid ]]; then
-	    kill $pid
+	    kill -9 $pid
 	else
 	    echo "Does not exist"
 	fi
+	rm ${GLASSFISH}/glassfish/domains/domain1/imq/instances/imqbroker/lock
 	echo "Glassfish is killed"
 }
 
 # Logs
 function gfl(){
 	tail -F -n1000 ${GLASSFISH}/glassfish/domains/domain1/logs/server.log
+}
+
+function gft(){
+	touch ${GLASSFISH}/glassfish/domains/domain1/autodeploy/*.ear
+}
+
+function gfu(){
+	rm ${GLASSFISH}/glassfish/domains/domain1/autodeploy/*.ear
 }
